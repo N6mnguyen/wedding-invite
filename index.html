@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Thiệp Cưới · Văn Tùng & Hương Lan</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@500;700&family=Cinzel:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <script>
+      /* ╔══════════════════════════════════════════════════════════════╗
+   ║            🌸  KHU VỰC THAY ẢNH  🌸                        ║
+   ║  Thay link ảnh tại đây — paste URL ảnh của bạn vào đây     ║
+   ╚══════════════════════════════════════════════════════════════╝ */
+      const IMAGES = {
+        /* Ảnh nền Hero (ảnh cưới toàn cảnh đẹp nhất) */
+        hero: "./image/banner.JPG",
+
+        /* Ảnh đôi — section "Câu chuyện tình yêu" (ảnh lãng mạn) */
+        story: "./image/anh-doi.JPG",
+
+        /* Ảnh cô dâu (chân dung riêng hoặc cận cảnh) */
+        bride: "./image/co-dau.JPG",
+
+        /* Ảnh chú rể (chân dung riêng hoặc cận cảnh) */
+        groom: "./image/chu-re-2.JPG",
+
+        /* Album ảnh — 6 ảnh hiện theo dạng lưới (thay từng ảnh một) */
+        album: [
+          "./image/album-item.png",
+          "./image/album-item-1.png",
+          "./image/album-item-2.png",
+          "./image/album-item-5.png",
+          "./image/album-item-7.png",
+        ],
+      };
+      /* ══════════════════════════════════════════════════════════════ */
+    </script>
+
+    <style>
+      /* ── Reset & Base ── */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: #fdf8f3;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      /* ── Font helpers ── */
+      .fc {
+        font-family: "Cormorant Garamond", serif;
+      }
+      .fd {
+        font-family: "Dancing Script", cursive;
+      }
+      .fci {
+        font-family: "Cinzel", serif;
+      }
+
+      /* ── Gold text ── */
+      .gold {
+        background: linear-gradient(
+          135deg,
+          #b8892a 0%,
+          #e8c55a 48%,
+          #b8892a 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ── Backgrounds ── */
+      .paper {
+        background:
+          radial-gradient(
+            ellipse at 20% 60%,
+            rgba(201, 168, 76, 0.06) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse at 80% 20%,
+            rgba(220, 140, 100, 0.06) 0%,
+            transparent 55%
+          ),
+          #fdf8f3;
+      }
+      .sand {
+        background: #f5ede2;
+      }
+      .darkbg {
+        background: #2d1f12;
+      }
+
+      /* ── Eyebrow ── */
+      .eyebrow {
+        font-family: "Cinzel", serif;
+        font-size: 0.58rem;
+        letter-spacing: 0.45em;
+        color: #b8892a;
+        text-transform: uppercase;
+        display: block;
+      }
+
+      /* ── Section pad ── */
+      .sec {
+        padding: 5rem 1.5rem;
+      }
+      .sec-sm {
+        padding: 3.5rem 1.5rem;
+      }
+
+      /* ── Containers ── */
+      .wrap {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .wrap-sm {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .center {
+        text-align: center;
+      }
+
+      /* ── Divider ── */
+      .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin: 2rem 0;
+      }
+      .divider-line {
+        height: 1px;
+        width: 4rem;
+        background: rgba(201, 168, 76, 0.3);
+      }
+
+      /* ── Scroll reveal ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.9s cubic-bezier(0.22, 0.9, 0.36, 1),
+          transform 0.9s cubic-bezier(0.22, 0.9, 0.36, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-l {
+        opacity: 0;
+        transform: translateX(-45px);
+        transition:
+          opacity 0.9s cubic-bezier(0.22, 0.9, 0.36, 1),
+          transform 0.9s cubic-bezier(0.22, 0.9, 0.36, 1);
+      }
+      .reveal-l.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-r {
+        opacity: 0;
+        transform: translateX(45px);
+        transition:
+          opacity 0.9s cubic-bezier(0.22, 0.9, 0.36, 1),
+          transform 0.9s cubic-bezier(0.22, 0.9, 0.36, 1);
+      }
+      .reveal-r.visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ── Petals ── */
+      .petal {
+        position: fixed;
+        pointer-events: none;
+        z-index: 30;
+        user-select: none;
+        top: -6%;
+        animation: fall linear infinite;
+      }
+      @keyframes fall {
+        0% {
+          opacity: 0;
+          transform: translateY(0) translateX(0) rotate(0);
+        }
+        7% {
+          opacity: 0.9;
+        }
+        85% {
+          opacity: 0.65;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(110vh) translateX(var(--drift)) rotate(380deg);
+        }
+      }
+
+      /* ══════════════════════════
+   HERO
+══════════════════════════ */
+      #hero {
+        position: relative;
+        height: 100svh;
+        min-height: 560px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      #hero-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center 30%;
+        transform: scale(1.1);
+      }
+      .hero-ov {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(12, 6, 2, 0.3) 0%,
+          rgba(12, 6, 2, 0.1) 40%,
+          rgba(12, 6, 2, 0.6) 100%
+        );
+      }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 0 1.5rem;
+        width: 100%;
+      }
+      .hero-names {
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(3.2rem, 13vw, 8.5rem);
+        line-height: 1.05;
+        color: #f8e9c8;
+      }
+      .hero-names .amp {
+        font-size: clamp(2rem, 7vw, 5rem);
+        opacity: 0.55;
+        display: block;
+        margin: 0.1em 0;
+        line-height: 1;
+      }
+      .hero-subtitle {
+        font-family: "Cinzel", serif;
+        font-size: clamp(0.5rem, 0.9vw, 0.62rem);
+        letter-spacing: 0.5em;
+        color: rgba(248, 233, 200, 0.65);
+        text-transform: uppercase;
+        margin-top: 1.8rem;
+      }
+      .ring {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .scroll-hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+        animation: sbounce 2.2s ease-in-out infinite;
+      }
+      @keyframes sbounce {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+        }
+        50% {
+          transform: translateX(-50%) translateY(7px);
+        }
+      }
+      .scroll-hint p {
+        font-family: "Cinzel", serif;
+        font-size: 0.52rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: rgba(248, 233, 200, 0.38);
+      }
+      .scroll-hint .bar {
+        width: 1px;
+        height: 1.8rem;
+        background: linear-gradient(
+          to bottom,
+          rgba(248, 233, 200, 0.35),
+          transparent
+        );
+      }
+
+      /* ══════════════════════════
+   DATE CARD
+══════════════════════════ */
+      .date-card {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(10px);
+        border-radius: 1.4rem;
+        padding: 2.5rem 2rem;
+        border: 1px solid rgba(201, 168, 76, 0.28);
+        box-shadow: 0 6px 50px rgba(180, 130, 40, 0.07);
+      }
+      .date-row {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: 2rem;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .date-col {
+        text-align: center;
+        flex: 1;
+        min-width: 100px;
+      }
+      .date-sep {
+        width: 1px;
+        background: rgba(201, 168, 76, 0.4);
+        align-self: stretch;
+        min-height: 60px;
+      }
+      .date-num {
+        font-family: "Cinzel", serif;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #8a5c20;
+      }
+      .date-lbl {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(130, 85, 30, 0.55);
+        margin-top: 0.3rem;
+      }
+
+      /* ══════════════════════════
+   STORY — photo left, text right
+══════════════════════════ */
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 520px;
+        gap: 0;
+      }
+      .story-img {
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        min-height: 360px;
+      }
+      .story-img::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, transparent 60%, #f5ede2);
+      }
+      .story-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem 3rem 4rem 2rem;
+      }
+
+      /* ══════════════════════════
+   COUPLE PORTRAIT — side by side
+══════════════════════════ */
+      .couple-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .portrait {
+        position: relative;
+        overflow: hidden;
+        min-height: 460px;
+      }
+      .portrait-img {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center top;
+        transition: transform 6s ease-out;
+      }
+      .portrait:hover .portrait-img {
+        transform: scale(1.05);
+      }
+      .portrait-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 2rem 1.5rem;
+        background: linear-gradient(
+          to top,
+          rgba(15, 8, 2, 0.72) 0%,
+          rgba(15, 8, 2, 0.1) 55%,
+          transparent 100%
+        );
+        text-align: center;
+      }
+      .portrait-name {
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: #f8e9c8;
+        line-height: 1.1;
+      }
+      .portrait-role {
+        font-family: "Cinzel", serif;
+        font-size: 0.55rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: rgba(248, 233, 200, 0.55);
+        margin-top: 0.4rem;
+      }
+
+      /* ══════════════════════════
+   ALBUM GRID
+══════════════════════════ */
+      .album-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 280px 280px;
+        gap: 8px;
+      }
+      .album-cell {
+        overflow: hidden;
+        border-radius: 0.4rem;
+        position: relative;
+      }
+      .album-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.7s cubic-bezier(0.22, 0.9, 0.36, 1);
+      }
+      .album-cell:hover img {
+        transform: scale(1.07);
+      }
+      .cell-tall {
+        grid-row: span 2;
+      }
+      /* label overlay on hover */
+      .album-cell::after {
+        content: attr(data-label);
+        position: absolute;
+        inset: 0;
+        background: rgba(15, 8, 2, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Dancing Script", cursive;
+        font-size: 1.4rem;
+        color: #f8e9c8;
+        opacity: 0;
+        transition: opacity 0.35s;
+      }
+      .album-cell:hover::after {
+        opacity: 1;
+      }
+
+      /* ══════════════════════════
+   TIMELINE
+══════════════════════════ */
+      .tl {
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .tl-item {
+        display: flex;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+        text-align: left;
+      }
+      .tl-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+      .tl-dot {
+        width: 1.9rem;
+        height: 1.9rem;
+        border-radius: 50%;
+        background: #faeeda;
+        border: 2px solid rgba(201, 168, 76, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tl-dot-inner {
+        width: 0.45rem;
+        height: 0.45rem;
+        border-radius: 50%;
+        background: #b8892a;
+        opacity: 0.75;
+      }
+      .tl-vline {
+        width: 1px;
+        flex: 1;
+        background: rgba(201, 168, 76, 0.28);
+        margin-top: 0.35rem;
+      }
+      .tl-year {
+        font-family: "Cinzel", serif;
+        font-size: 0.58rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(184, 137, 42, 0.65);
+        margin-bottom: 0.2rem;
+      }
+      .tl-title {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.55rem;
+        margin-bottom: 0.25rem;
+      }
+      .tl-desc {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 0.95rem;
+        color: rgba(100, 65, 20, 0.6);
+        line-height: 1.7;
+      }
+
+      /* ══════════════════════════
+   COUNTDOWN
+══════════════════════════ */
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+      .cb {
+        background: rgba(255, 255, 255, 0.75);
+        border-radius: 1rem;
+        padding: 1rem 1.2rem;
+        border: 1px solid rgba(201, 168, 76, 0.38);
+        min-width: 70px;
+        text-align: center;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+      }
+      .cb:hover {
+        transform: scale(1.06);
+        box-shadow: 0 8px 28px rgba(180, 120, 40, 0.14);
+      }
+      .cb-num {
+        font-family: "Cinzel", serif;
+        font-size: 2.1rem;
+        line-height: 1.1;
+      }
+      .cb-lbl {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 0.68rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: #b8892a;
+        opacity: 0.68;
+        margin-top: 0.25rem;
+      }
+
+      /* ══════════════════════════
+   VENUE
+══════════════════════════ */
+      .venue-card {
+        background: rgba(255, 255, 255, 0.68);
+        backdrop-filter: blur(8px);
+        border-radius: 1.3rem;
+        padding: 2.2rem;
+        border: 1px solid rgba(201, 168, 76, 0.28);
+        text-align: center;
+      }
+      .map-link {
+        display: inline-block;
+        margin-top: 1.4rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.58rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: rgba(184, 137, 42, 0.8);
+        border: 1px solid rgba(201, 168, 76, 0.38);
+        border-radius: 2rem;
+        padding: 0.65rem 1.8rem;
+        text-decoration: none;
+        transition:
+          border-color 0.3s,
+          transform 0.2s;
+      }
+      .map-link:hover {
+        border-color: rgba(201, 168, 76, 0.65);
+        transform: scale(1.03);
+      }
+
+      /* ══════════════════════════
+   RSVP
+══════════════════════════ */
+      .rsvp-input {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        border-radius: 0.75rem;
+        padding: 0.8rem 1rem;
+        color: #f8e9c8;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.3s;
+        margin-bottom: 0.9rem;
+      }
+      .rsvp-input::placeholder {
+        color: rgba(220, 180, 100, 0.35);
+      }
+      .rsvp-input:focus {
+        border-color: rgba(201, 168, 76, 0.65);
+      }
+      .btn-row {
+        display: flex;
+        gap: 0.7rem;
+      }
+      .btn-yes {
+        flex: 1;
+        background: rgba(184, 137, 42, 0.85);
+        color: #fff8ee;
+        font-family: "Cinzel", serif;
+        font-size: 0.57rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        padding: 0.9rem;
+        border: none;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        transition:
+          background 0.25s,
+          transform 0.15s;
+      }
+      .btn-yes:hover {
+        background: #c09030;
+      }
+      .btn-yes:active {
+        transform: scale(0.97);
+      }
+      .btn-no {
+        flex: 1;
+        background: transparent;
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        color: rgba(220, 180, 100, 0.68);
+        font-family: "Cinzel", serif;
+        font-size: 0.57rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        padding: 0.9rem;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        transition:
+          border-color 0.25s,
+          transform 0.15s;
+      }
+      .btn-no:hover {
+        border-color: rgba(201, 168, 76, 0.58);
+      }
+      .btn-no:active {
+        transform: scale(0.97);
+      }
+      .thanks {
+        display: none;
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      /* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+      .footer-petal {
+        display: inline-block;
+        font-size: 1.5rem;
+        animation: bob 2.5s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      /* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+      @media (max-width: 768px) {
+        .story-grid {
+          grid-template-columns: 1fr;
+        }
+        .story-img::after {
+          background: linear-gradient(to bottom, transparent 60%, #f5ede2);
+        }
+        .story-text {
+          padding: 2.5rem 1.5rem;
+        }
+        .couple-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .portrait {
+          min-height: 320px;
+        }
+        .album-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 200px 200px 200px;
+        }
+        .cell-tall {
+          grid-row: span 1;
+        }
+        .album-grid .album-cell:nth-child(1) {
+          grid-column: span 2;
+        }
+        .date-sep {
+          display: none;
+        }
+        .polaroid-row {
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        .polaroid-row .polaroid:last-child {
+          grid-column: span 2;
+        }
+        .sec {
+          padding: 3.5rem 1.2rem;
+        }
+        .story-text {
+          padding: 2rem 1.2rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .album-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 160px 160px 160px;
+        }
+        .album-grid .album-cell:nth-child(1) {
+          grid-column: span 2;
+        }
+        .cell-tall {
+          grid-row: span 1;
+        }
+        .btn-row {
+          flex-direction: column;
+        }
+        .countdown {
+          gap: 0.5rem;
+        }
+        .cb {
+          min-width: 60px;
+          padding: 0.8rem 0.9rem;
+        }
+        .cb-num {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+
+    <!-- ═══════════ BODY STARTS ═══════════ -->
+
+    <!-- 🌸 Petals injected by JS -->
+
+    <!-- ══════════ 1. HERO ══════════ -->
+    <section id="hero">
+      <div id="hero-bg"></div>
+      <div class="hero-ov"></div>
+      <div
+        class="ring"
+        style="
+          width: 62vmin;
+          height: 62vmin;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        "
+      ></div>
+      <div
+        class="ring"
+        style="
+          width: 80vmin;
+          height: 80vmin;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          border-color: rgba(255, 255, 255, 0.06);
+        "
+      ></div>
+      <div
+        class="hero-content"
+        id="hero-anim"
+        style="opacity: 0; transform: translateY(30px)"
+      >
+        <span
+          class="eyebrow"
+          style="color: rgba(248, 233, 200, 0.55); margin-bottom: 1.4rem"
+          >Together with their families</span
+        >
+        <h1 class="hero-names">
+          Văn Tùng
+          <span class="amp fd">&</span>
+          Hương Lan
+        </h1>
+        <p class="hero-subtitle">
+          Kính mời quý vị đến chung vui cùng chúng tôi
+        </p>
+      </div>
+      <div class="scroll-hint">
+        <p>Scroll</p>
+        <div class="bar"></div>
+      </div>
+    </section>
+
+    <!-- ══════════ 2. QUOTE + DATE ══════════ -->
+    <section class="paper sec">
+      <div class="wrap-sm center">
+        <p
+          class="fc reveal"
+          style="
+            font-style: italic;
+            font-size: 1.15rem;
+            color: rgba(130, 85, 30, 0.6);
+            line-height: 1.9;
+            margin-bottom: 2rem;
+          "
+        >
+          "Tình yêu không phải là nhìn nhau, mà là cùng nhau nhìn về một hướng."
+        </p>
+        <div class="divider reveal">
+          <div class="divider-line"></div>
+          <span style="color: #c9a050; font-size: 1rem">✦</span>
+          <div class="divider-line"></div>
+        </div>
+        <div class="date-card reveal">
+          <span class="eyebrow" style="margin-bottom: 0.5rem"
+            >Ngày Lành Tháng Tốt</span
+          >
+          <p
+            class="fd gold"
+            style="
+              font-size: clamp(2.4rem, 8vw, 3.8rem);
+              margin: 0.5rem 0 0.25rem;
+            "
+          >
+            05 · 04 · 2026
+          </p>
+          <p
+            class="fci"
+            style="
+              font-size: 0.6rem;
+              letter-spacing: 0.3em;
+              color: rgba(130, 85, 30, 0.45);
+              text-transform: uppercase;
+              margin-bottom: 1.2rem;
+            "
+          >
+            Chủ Nhật
+          </p>
+          <div class="date-row">
+            <div class="date-col">
+              <div class="date-num">10:00 SA</div>
+              <div class="date-lbl">Lễ Vu Quy</div>
+            </div>
+            <div class="date-sep"></div>
+            <div class="date-col">
+              <div class="date-num">11:30 SA</div>
+              <div class="date-lbl">Lễ Thành Hôn</div>
+            </div>
+            <div class="date-sep"></div>
+            <div class="date-col">
+              <div class="date-num">18:00 CH</div>
+              <div class="date-lbl">Tiệc Cưới</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 3. STORY — ảnh + text ══════════ -->
+    <div class="story-grid reveal">
+      <div class="story-img" id="story-bg"></div>
+      <div class="story-text sand">
+        <span class="eyebrow" style="margin-bottom: 1.2rem"
+          >Câu Chuyện Của Chúng Tôi</span
+        >
+        <h2
+          class="fd gold"
+          style="
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            line-height: 1.15;
+            margin-bottom: 1.2rem;
+          "
+        >
+          Hai Tâm Hồn<br />Một Nhà
+        </h2>
+        <p
+          class="fc"
+          style="
+            font-size: 1.05rem;
+            color: rgba(100, 65, 20, 0.62);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+          "
+        >
+          Từ một buổi chiều tháng mười tại Bắc Ninh, hai người lạ tình cờ bắt
+          đầu một hành trình không có điểm cuối. Qua những mùa hoa nở rồi tàn,
+          tình yêu vẫn ở đó — bình yên và chắc chắn.
+        </p>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap">
+          <div>
+            <p class="fci gold" style="font-size: 1.8rem">2021</p>
+            <p
+              class="fc"
+              style="
+                font-size: 0.82rem;
+                color: rgba(100, 65, 20, 0.5);
+                letter-spacing: 0.05em;
+              "
+            >
+              Lần đầu gặp nhau
+            </p>
+          </div>
+          <div>
+            <p class="fci gold" style="font-size: 1.8rem">2024</p>
+            <p
+              class="fc"
+              style="
+                font-size: 0.82rem;
+                color: rgba(100, 65, 20, 0.5);
+                letter-spacing: 0.05em;
+              "
+            >
+              Lời cầu hôn
+            </p>
+          </div>
+          <div>
+            <p class="fci gold" style="font-size: 1.8rem">2026</p>
+            <p
+              class="fc"
+              style="
+                font-size: 0.82rem;
+                color: rgba(100, 65, 20, 0.5);
+                letter-spacing: 0.05em;
+              "
+            >
+              Nên duyên trăm năm
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ 4. CHÂN DUNG CÔ DÂU & CHÚ RỂ ══════════ -->
+    <div class="couple-grid">
+      <div class="portrait reveal-l">
+        <div class="portrait-img" id="groom-bg"></div>
+        <div class="portrait-overlay">
+          <p class="portrait-name">Văn Tùng</p>
+          <p class="portrait-role">Chú Rể</p>
+        </div>
+      </div>
+      <div class="portrait reveal-r">
+        <div class="portrait-img" id="bride-bg"></div>
+        <div class="portrait-overlay">
+          <p class="portrait-name">Hương Lan</p>
+          <p class="portrait-role">Cô Dâu</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ 5. ALBUM ẢNH ══════════ -->
+    <section class="darkbg sec-sm">
+      <div class="wrap center" style="margin-bottom: 2.5rem">
+        <div class="reveal">
+          <span
+            class="eyebrow"
+            style="color: rgba(201, 168, 76, 0.55); margin-bottom: 0.6rem"
+            >Khoảnh Khắc Đáng Nhớ</span
+          >
+          <h2
+            class="fd"
+            style="font-size: clamp(2.2rem, 6vw, 3.2rem); color: #f0d98a"
+          >
+            Album Ảnh Cưới
+          </h2>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="album-grid reveal" id="album-grid">
+          <!-- filled by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 6. TIMELINE ══════════ -->
+    <section class="sand sec">
+      <div class="wrap center">
+        <div class="reveal" style="margin-bottom: 3rem">
+          <span class="eyebrow" style="margin-bottom: 0.6rem"
+            >Hành Trình Tình Yêu</span
+          >
+          <h2 class="fd gold" style="font-size: clamp(2rem, 5vw, 3rem)">
+            Những Dấu Mốc
+          </h2>
+        </div>
+        <div class="tl" id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- ══════════ 7. VENUE ══════════ -->
+    <section class="paper sec">
+      <div class="wrap-sm center reveal">
+        <span class="eyebrow" style="margin-bottom: 1rem"
+          >Địa Điểm Tổ Chức</span
+        >
+        <h2
+          class="fd gold"
+          style="font-size: clamp(2rem, 6vw, 3.2rem); margin-bottom: 0.6rem"
+        >
+          Nhà Hàng Tiệc Cưới
+        </h2>
+        <div class="venue-card" style="margin-top: 1.5rem">
+          <p
+            class="fci"
+            style="
+              font-size: 0.6rem;
+              letter-spacing: 0.35em;
+              text-transform: uppercase;
+              color: #b8892a;
+              margin-bottom: 0.8rem;
+            "
+          >
+            Địa Chỉ
+          </p>
+          <p
+            class="fc"
+            style="
+              font-size: 1.15rem;
+              color: rgba(100, 65, 20, 0.8);
+              line-height: 1.8;
+            "
+          >
+            Thuận Thành, Bắc Ninh
+          </p>
+          <p
+            class="fc"
+            style="
+              font-size: 0.95rem;
+              color: rgba(100, 65, 20, 0.52);
+              margin-top: 0.4rem;
+            "
+          >
+            (Chi tiết địa chỉ cụ thể sẽ được thông báo thêm)
+          </p>
+          <a
+            href="https://maps.google.com/?q=Thuan+Thanh+Bac+Ninh"
+            target="_blank"
+            class="map-link"
+          >
+            📍 Xem trên Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 8. COUNTDOWN ══════════ -->
+    <section class="sand sec">
+      <div class="wrap center reveal">
+        <span class="eyebrow" style="margin-bottom: 2rem"
+          >Đếm Ngược Đến Ngày Trọng Đại</span
+        >
+        <div class="countdown">
+          <div class="cb">
+            <div class="cb-num gold" id="cd-d">000</div>
+            <div class="cb-lbl">Ngày</div>
+          </div>
+          <div class="cb">
+            <div class="cb-num gold" id="cd-h">00</div>
+            <div class="cb-lbl">Giờ</div>
+          </div>
+          <div class="cb">
+            <div class="cb-num gold" id="cd-m">00</div>
+            <div class="cb-lbl">Phút</div>
+          </div>
+          <div class="cb">
+            <div class="cb-num gold" id="cd-s">00</div>
+            <div class="cb-lbl">Giây</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 9. RSVP ══════════ -->
+    <section class="darkbg sec">
+      <div class="wrap-sm center reveal">
+        <span
+          class="eyebrow"
+          style="color: rgba(201, 168, 76, 0.52); margin-bottom: 0.6rem"
+          >Xác Nhận Tham Dự</span
+        >
+        <h2
+          class="fd"
+          style="
+            font-size: clamp(3rem, 9vw, 4.2rem);
+            color: #e8c55a;
+            margin-bottom: 0.6rem;
+          "
+        >
+          RSVP
+        </h2>
+        <p
+          class="fc"
+          style="
+            font-size: 1rem;
+            color: rgba(230, 205, 155, 0.5);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+          "
+        >
+          Vui lòng xác nhận trước ngày
+          <strong style="color: #e8c55a">27 / 03 / 2026</strong>
+        </p>
+        <div id="rsvp-form">
+          <input
+            class="rsvp-input"
+            id="rsvp-name"
+            type="text"
+            placeholder="Họ và tên của bạn"
+          />
+          <div class="btn-row">
+            <button class="btn-yes" onclick="sendRSVP(true)">
+              Tôi Sẽ Đến 🥂
+            </button>
+            <button class="btn-no" onclick="sendRSVP(false)">
+              Tiếc Không Đến
+            </button>
+          </div>
+        </div>
+        <div class="thanks" id="rsvp-thanks">
+          <p
+            class="fd"
+            style="font-size: 2.8rem; color: #e8c55a; margin-bottom: 0.6rem"
+            id="thanks-h"
+          ></p>
+          <p
+            class="fc"
+            style="font-size: 1rem; color: rgba(230, 205, 155, 0.5)"
+            id="thanks-p"
+          ></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="paper" style="padding: 3.5rem 1.5rem; text-align: center">
+      <p
+        class="fd gold"
+        style="font-size: clamp(2rem, 7vw, 2.8rem); margin-bottom: 0.4rem"
+      >
+        Văn Tùng & Hương Lan
+      </p>
+      <p
+        class="fci"
+        style="
+          font-size: 0.6rem;
+          letter-spacing: 0.3em;
+          color: rgba(180, 120, 40, 0.42);
+        "
+      >
+        05 · 04 · 2026 · Thuận Thành, Bắc Ninh
+      </p>
+      <div
+        style="
+          margin-top: 1.4rem;
+          display: flex;
+          justify-content: center;
+          gap: 0.7rem;
+        "
+      >
+        <span class="footer-petal" style="animation-delay: 0s">🌸</span>
+        <span class="footer-petal" style="animation-delay: 0.5s">💍</span>
+        <span class="footer-petal" style="animation-delay: 1s">🌸</span>
+      </div>
+    </footer>
+
+    <!-- ════════════════ SCRIPTS ════════════════ -->
+    <script>
+      /* ── Apply images from config ── */
+      document.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("hero-bg").style.backgroundImage =
+          `url('${IMAGES.hero}')`;
+        document.getElementById("story-bg").style.backgroundImage =
+          `url('${IMAGES.story}')`;
+        document.getElementById("bride-bg").style.backgroundImage =
+          `url('${IMAGES.bride}')`;
+        document.getElementById("groom-bg").style.backgroundImage =
+          `url('${IMAGES.groom}')`;
+
+        /* Album grid — layout: tall | 2 normal | 2 normal | tall */
+        const labels = [
+          "Lễ Vu Quy",
+          "Khoảnh Khắc",
+          "Hạnh Phúc",
+          "Nụ Cười",
+          "Trọn Đời",
+        ];
+        const grid = document.getElementById("album-grid");
+        IMAGES.album.forEach((url, i) => {
+          const cell = document.createElement("div");
+          cell.className =
+            "album-cell" + (i === 0 || i === 5 ? " cell-tall" : "");
+          cell.dataset.label = labels[i] || "";
+          const img = document.createElement("img");
+          img.src = url;
+          img.alt = labels[i] || "Wedding photo";
+          img.loading = "lazy";
+          cell.appendChild(img);
+          grid.appendChild(cell);
+        });
+      });
+
+      /* ── Petals ── */
+      const PETAL_DATA = [
+        { l: "3%", delay: 0, dur: 9, size: 18, drift: "120px", e: "🌸" },
+        { l: "10%", delay: 1.5, dur: 7.5, size: 14, drift: "-85px", e: "🌸" },
+        { l: "20%", delay: 3, dur: 10, size: 20, drift: "65px", e: "🌷" },
+        { l: "32%", delay: 0.7, dur: 8, size: 13, drift: "-100px", e: "🌸" },
+        { l: "44%", delay: 4, dur: 9.5, size: 17, drift: "90px", e: "🌸" },
+        { l: "54%", delay: 2, dur: 7, size: 19, drift: "-65px", e: "🌸" },
+        { l: "65%", delay: 5, dur: 11, size: 15, drift: "105px", e: "🌷" },
+        { l: "75%", delay: 2.5, dur: 8.5, size: 18, drift: "-80px", e: "🌸" },
+        { l: "84%", delay: 1, dur: 9, size: 14, drift: "55px", e: "🌸" },
+        { l: "92%", delay: 3.5, dur: 10, size: 21, drift: "-115px", e: "🌸" },
+        { l: "8%", delay: 6, dur: 8, size: 12, drift: "90px", e: "🌸" },
+        { l: "28%", delay: 7, dur: 9, size: 16, drift: "-60px", e: "🌸" },
+        { l: "50%", delay: 8, dur: 7.5, size: 13, drift: "75px", e: "🌷" },
+        { l: "70%", delay: 6.5, dur: 11, size: 17, drift: "-95px", e: "🌸" },
+        { l: "88%", delay: 5, dur: 8, size: 19, drift: "110px", e: "🌸" },
+      ];
+      PETAL_DATA.forEach((p) => {
+        const el = document.createElement("span");
+        el.className = "petal";
+        el.textContent = p.e;
+        el.style.cssText = `left:${p.l};font-size:${p.size}px;--drift:${p.drift};animation-duration:${p.dur}s;animation-delay:${p.delay}s`;
+        document.body.appendChild(el);
+      });
+
+      /* ── Hero fade-in ── */
+      setTimeout(() => {
+        const h = document.getElementById("hero-anim");
+        h.style.transition =
+          "opacity 1.2s cubic-bezier(.22,.9,.36,1), transform 1.2s cubic-bezier(.22,.9,.36,1)";
+        h.style.opacity = "1";
+        h.style.transform = "none";
+      }, 200);
+
+      /* ── Hero parallax ── */
+      window.addEventListener("scroll", () => {
+        const s = window.scrollY;
+        const bg = document.getElementById("hero-bg");
+        const hc = document.getElementById("hero-anim");
+        if (s < window.innerHeight) {
+          bg.style.transform = `scale(1.1) translateY(${s * 0.3}px)`;
+          hc.style.transform = `translateY(${s * 0.18}px)`;
+          hc.style.opacity = String(1 - s / (window.innerHeight * 0.75));
+        }
+      });
+
+      /* ── Timeline data ── */
+      const STORY = [
+        {
+          year: "2021",
+          title: "Lần đầu gặp gỡ",
+          desc: "Một buổi tối tháng Mười tại Thuận Thành, hai tâm hồn vô tình gặp nhau.",
+        },
+        {
+          year: "2022",
+          title: "Bắt đầu yêu nhau",
+          desc: "Qua những chuyến đi, những tin nhắn khuya, trái tim chợt hiểu.",
+        },
+        {
+          year: "2024",
+          title: "Lời cầu hôn",
+          desc: "Dưới bầu trời đầy sao, một câu hỏi thay đổi tất cả mãi mãi.",
+        },
+        {
+          year: "2026",
+          title: "Nên Duyên Trăm Năm",
+          desc: "Ngày 05 tháng 04, chúng tôi chính thức bước sang trang mới.",
+        },
+      ];
+      const tlEl = document.getElementById("timeline");
+      STORY.forEach((s, i) => {
+        tlEl.innerHTML += `
+  <div class="tl-item reveal" style="transition-delay:${i * 0.1}s">
+    <div class="tl-side">
+      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+      ${i < STORY.length - 1 ? '<div class="tl-vline"></div>' : ""}
+    </div>
+    <div style="padding-bottom:1.25rem">
+      <p class="tl-year">${s.year}</p>
+      <p class="tl-title gold">${s.title}</p>
+      <p class="tl-desc">${s.desc}</p>
+    </div>
+  </div>`;
+      });
+
+      /* ── Countdown ── */
+      const TARGET = new Date("2026-04-05T10:00:00");
+      function pad(n) {
+        return String(n).padStart(2, "0");
+      }
+      function tick() {
+        const diff = TARGET - Date.now();
+        if (diff > 0) {
+          document.getElementById("cd-d").textContent = pad(
+            Math.floor(diff / 86400000),
+          );
+          document.getElementById("cd-h").textContent = pad(
+            Math.floor((diff % 86400000) / 3600000),
+          );
+          document.getElementById("cd-m").textContent = pad(
+            Math.floor((diff % 3600000) / 60000),
+          );
+          document.getElementById("cd-s").textContent = pad(
+            Math.floor((diff % 60000) / 1000),
+          );
+        }
+      }
+      tick();
+      setInterval(tick, 1000);
+
+      /* ── RSVP ── */
+      function sendRSVP(coming) {
+        const name = document.getElementById("rsvp-name").value.trim();
+        if (!name) {
+          document.getElementById("rsvp-name").style.borderColor =
+            "rgba(220,100,80,.6)";
+          return;
+        }
+        document.getElementById("rsvp-form").style.display = "none";
+        const t = document.getElementById("rsvp-thanks");
+        t.style.display = "block";
+        document.getElementById("thanks-h").textContent = coming
+          ? "Cảm ơn bạn! 🌸"
+          : "Rất tiếc khi nghe vậy 💌";
+        document.getElementById("thanks-p").textContent = coming
+          ? `Chúng tôi rất vui khi được đón ${name} đến chung vui ngày 05/04/2026!`
+          : `Cảm ơn ${name} đã nhắn tin. Chúng tôi sẽ nhớ đến bạn!`;
+      }
+
+      /* ── Scroll reveal (IntersectionObserver) ── */
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.1 },
+      );
+      document
+        .querySelectorAll(".reveal,.reveal-l,.reveal-r")
+        .forEach((el) => obs.observe(el));
+    </script>
+  </body>
+</html>

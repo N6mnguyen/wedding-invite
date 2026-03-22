@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-    <!-- Open Graph -->
     <meta property="og:title" content="Thiệp cưới Văn Tùng & Hương Lan" />
     <meta
       property="og:description"
@@ -24,8 +22,6 @@
     <meta property="og:url" content="https://www.thiepcuoi-vantung.click/" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="vi_VN" />
-
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Thiệp cưới Văn Tùng & Hương Lan" />
     <meta
@@ -36,7 +32,6 @@
       name="twitter:image"
       content="https://www.thiepcuoi-vantung.click/image/banner-link.png"
     />
-
     <title>Thiệp Cưới · Văn Tùng & Hương Lan</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@500;700&family=Cinzel:wght@400;600&display=swap"
@@ -61,6 +56,7 @@
     </script>
 
     <style>
+      /* ═══════════ RESET ═══════════ */
       * {
         box-sizing: border-box;
         margin: 0;
@@ -69,12 +65,55 @@
       html {
         scroll-behavior: smooth;
       }
+
       body {
-        background: #fdf8f3;
         overflow-x: hidden;
         -webkit-font-smoothing: antialiased;
         font-family: "Cormorant Garamond", serif;
+        background: #1a1008;
       }
+
+      /* ═══════════ MOBILE FRAME WRAPPER ═══════════ */
+      #app {
+        position: relative;
+        width: 100%;
+        max-width: 430px;
+        margin: 0 auto;
+        background: #fdf8f3;
+        overflow-x: hidden;
+        min-height: 100svh;
+      }
+
+      @media (min-width: 769px) {
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          min-height: 100vh;
+          background:
+            radial-gradient(
+              ellipse at 30% 40%,
+              rgba(184, 137, 42, 0.1) 0%,
+              transparent 55%
+            ),
+            radial-gradient(
+              ellipse at 70% 70%,
+              rgba(100, 50, 10, 0.15) 0%,
+              transparent 55%
+            ),
+            #1a1008;
+        }
+        #app {
+          box-shadow:
+            0 0 0 1px rgba(201, 168, 76, 0.2),
+            0 30px 80px rgba(0, 0, 0, 0.75),
+            0 0 60px rgba(184, 137, 42, 0.06);
+          border-radius: 2.5rem 2.5rem 0 0;
+          overflow: hidden;
+        }
+      }
+
+      /* ═══════════ FONTS & UTILITIES ═══════════ */
       .fc {
         font-family: "Cormorant Garamond", serif;
       }
@@ -84,7 +123,6 @@
       .fci {
         font-family: "Cinzel", serif;
       }
-
       .gold {
         background: linear-gradient(
           135deg,
@@ -116,7 +154,6 @@
       .darkbg {
         background: #2d1f12;
       }
-
       .eyebrow {
         font-family: "Cinzel", serif;
         font-size: 0.58rem;
@@ -142,7 +179,6 @@
       .center {
         text-align: center;
       }
-
       .divider {
         display: flex;
         align-items: center;
@@ -156,6 +192,7 @@
         background: rgba(201, 168, 76, 0.3);
       }
 
+      /* ═══════════ REVEAL ═══════════ */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
@@ -184,8 +221,9 @@
         transform: none;
       }
 
+      /* ═══════════ PETALS (absolute trong #app) ═══════════ */
       .petal {
-        position: fixed;
+        position: absolute;
         pointer-events: none;
         z-index: 30;
         user-select: none;
@@ -209,7 +247,7 @@
         }
       }
 
-      /* ── HERO ── */
+      /* ═══════════ HERO ═══════════ */
       #hero {
         position: relative;
         height: 100svh;
@@ -266,12 +304,10 @@
         margin-top: 1.8rem;
       }
 
-      /* ── MỪNG CƯỚI BUTTON (trong hero-content, ngay dưới subtitle) ── */
       .btn-mung-cuoi {
         display: inline-flex;
         align-items: center;
         gap: 0.55rem;
-        margin-top: 2.2rem;
         background: rgba(248, 233, 200, 0.12);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
@@ -291,7 +327,10 @@
           box-shadow 0.3s,
           transform 0.2s;
         animation: pulse-btn 2.8s ease-in-out infinite;
-        position: relative;
+        position: absolute;
+        bottom: 5.5rem;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: 3;
       }
       .btn-mung-cuoi .mc-icon {
@@ -302,7 +341,7 @@
         background: rgba(248, 233, 200, 0.22);
         border-color: rgba(248, 233, 200, 0.8);
         box-shadow: 0 0 28px rgba(248, 233, 200, 0.2);
-        transform: scale(1.04);
+        transform: translateX(-50%) scale(1.04);
       }
       @keyframes pulse-btn {
         0%,
@@ -365,7 +404,7 @@
         );
       }
 
-      /* ── DATE CARD ── */
+      /* ═══════════ DATE CARD ═══════════ */
       .date-card {
         background: rgba(255, 255, 255, 0.72);
         backdrop-filter: blur(10px);
@@ -408,7 +447,7 @@
         margin-top: 0.3rem;
       }
 
-      /* ── STORY ── */
+      /* ═══════════ STORY ═══════════ */
       .story-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -434,7 +473,7 @@
         padding: 4rem 3rem 4rem 2rem;
       }
 
-      /* ── COUPLE ── */
+      /* ═══════════ COUPLE ═══════════ */
       .couple-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -484,7 +523,7 @@
         margin-top: 0.4rem;
       }
 
-      /* ── ALBUM ── */
+      /* ═══════════ ALBUM ═══════════ */
       .album-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -527,7 +566,7 @@
         opacity: 1;
       }
 
-      /* ── TIMELINE ── */
+      /* ═══════════ TIMELINE ═══════════ */
       .tl {
         max-width: 440px;
         margin: 0 auto;
@@ -587,7 +626,7 @@
         line-height: 1.7;
       }
 
-      /* ── COUNTDOWN ── */
+      /* ═══════════ COUNTDOWN ═══════════ */
       .countdown {
         display: flex;
         justify-content: center;
@@ -624,7 +663,7 @@
         margin-top: 0.25rem;
       }
 
-      /* ── VENUE ── */
+      /* ═══════════ VENUE ═══════════ */
       .venue-card {
         background: rgba(255, 255, 255, 0.68);
         backdrop-filter: blur(8px);
@@ -654,7 +693,7 @@
         transform: scale(1.03);
       }
 
-      /* ── RSVP ── */
+      /* ═══════════ RSVP ═══════════ */
       .rsvp-input {
         width: 100%;
         background: rgba(255, 255, 255, 0.1);
@@ -728,7 +767,7 @@
         text-align: center;
       }
 
-      /* ── FOOTER ── */
+      /* ═══════════ FOOTER ═══════════ */
       .footer-petal {
         display: inline-block;
         font-size: 1.5rem;
@@ -744,9 +783,7 @@
         }
       }
 
-      /* ══════════════════════════════════════
-         POPUP MỪNG CƯỚI
-      ══════════════════════════════════════ */
+      /* ═══════════ POPUP MỪNG CƯỚI ═══════════ */
       .mc-backdrop {
         position: fixed;
         inset: 0;
@@ -770,12 +807,11 @@
         transform: translateY(0) scale(1);
         opacity: 1;
       }
-
       .mc-modal {
         background: linear-gradient(160deg, #fdf6ec 0%, #faeedd 100%);
         border-radius: 1.8rem;
         padding: 2.4rem 2.2rem 2.2rem;
-        max-width: 460px;
+        max-width: 400px;
         width: 100%;
         position: relative;
         border: 1px solid rgba(201, 168, 76, 0.35);
@@ -788,8 +824,6 @@
           transform 0.42s cubic-bezier(0.22, 0.9, 0.36, 1),
           opacity 0.42s;
       }
-
-      /* Ornamental top line */
       .mc-modal::before {
         content: "✦  Mừng Cưới  ✦";
         position: absolute;
@@ -806,7 +840,6 @@
         white-space: nowrap;
         padding: 0 0.5rem;
       }
-
       .mc-close {
         position: absolute;
         top: 0.9rem;
@@ -830,7 +863,6 @@
         background: rgba(130, 85, 30, 0.15);
         color: rgba(130, 85, 30, 0.85);
       }
-
       .mc-thanks {
         font-family: "Cormorant Garamond", serif;
         font-style: italic;
@@ -841,8 +873,6 @@
         margin-bottom: 1.5rem;
         padding: 0 0.5rem;
       }
-
-      /* luôn 2 cột ngang, co lại trên màn nhỏ */
       .mc-grid {
         display: flex;
         flex-direction: row;
@@ -872,7 +902,6 @@
         margin: 0 0.8rem;
         min-height: 140px;
       }
-
       .mc-role {
         font-family: "Cinzel", serif;
         font-size: 0.5rem;
@@ -883,8 +912,6 @@
         line-height: 1.9;
         white-space: nowrap;
       }
-
-      /* QR tự co theo chiều rộng màn hình */
       .mc-qr-wrap {
         width: min(116px, 38vw);
         height: min(116px, 38vw);
@@ -905,7 +932,6 @@
         object-position: center;
         display: block;
       }
-
       .mc-name {
         font-family: "Dancing Script", cursive;
         font-size: clamp(1.1rem, 4vw, 1.55rem);
@@ -917,7 +943,7 @@
         line-height: 1.2;
       }
 
-      /* modal padding thu nhỏ trên mobile */
+      /* ═══════════ RESPONSIVE ═══════════ */
       @media (max-width: 480px) {
         .mc-modal {
           padding: 1.8rem 1rem 1.5rem;
@@ -930,10 +956,57 @@
         .mc-sep {
           margin: 0 0.5rem;
         }
+        .story-grid {
+          grid-template-columns: 1fr;
+        }
+        .story-img::after {
+          background: linear-gradient(to bottom, transparent 60%, #f5ede2);
+        }
+        .story-text {
+          padding: 2rem 1.2rem;
+        }
+        .couple-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .portrait {
+          min-height: 320px;
+        }
+        .album-grid {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 160px 160px 160px;
+        }
+        .album-grid .album-cell:nth-child(1) {
+          grid-column: span 2;
+        }
+        .cell-tall {
+          grid-row: span 1;
+        }
+        .date-sep {
+          display: none;
+        }
+        .sec {
+          padding: 3.5rem 1.2rem;
+        }
+        .btn-row {
+          flex-direction: column;
+        }
+        .countdown {
+          gap: 0.5rem;
+        }
+        .cb {
+          min-width: 60px;
+          padding: 0.8rem 0.9rem;
+        }
+        .cb-num {
+          font-size: 1.8rem;
+        }
+        .btn-mung-cuoi {
+          font-size: 0.56rem;
+          padding: 0.7rem 1.6rem;
+          letter-spacing: 0.28em;
+        }
       }
-
-      /* ── RESPONSIVE ── */
-      @media (max-width: 768px) {
+      @media (min-width: 481px) and (max-width: 768px) {
         .story-grid {
           grid-template-columns: 1fr;
         }
@@ -965,9 +1038,6 @@
         .sec {
           padding: 3.5rem 1.2rem;
         }
-        .story-text {
-          padding: 2rem 1.2rem;
-        }
         .mc-modal {
           padding: 2rem 1.4rem 1.8rem;
         }
@@ -975,476 +1045,425 @@
           margin: 0 0.8rem;
         }
       }
-      @media (max-width: 480px) {
-        .album-grid {
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 160px 160px 160px;
-        }
-        .album-grid .album-cell:nth-child(1) {
-          grid-column: span 2;
-        }
-        .cell-tall {
-          grid-row: span 1;
-        }
-        .btn-row {
-          flex-direction: column;
-        }
-        .countdown {
-          gap: 0.5rem;
-        }
-        .cb {
-          min-width: 60px;
-          padding: 0.8rem 0.9rem;
-        }
-        .cb-num {
-          font-size: 1.8rem;
-        }
-        .btn-mung-cuoi {
-          font-size: 0.56rem;
-          padding: 0.7rem 1.6rem;
-          letter-spacing: 0.28em;
-        }
-      }
     </style>
 
-    <!-- ══════════ 1. HERO ══════════ -->
-    <section id="hero">
-      <div id="hero-bg"></div>
-      <div class="hero-ov"></div>
-      <div
-        class="ring"
-        style="
-          width: 62vmin;
-          height: 62vmin;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-        "
-      ></div>
-      <div
-        class="ring"
-        style="
-          width: 80vmin;
-          height: 80vmin;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          border-color: rgba(255, 255, 255, 0.06);
-        "
-      ></div>
-
-      <div
-        class="hero-content"
-        id="hero-anim"
-        style="opacity: 0; transform: translateY(30px)"
-      >
-        <span
-          class="eyebrow"
-          style="color: rgba(248, 233, 200, 0.55); margin-bottom: 1.4rem"
-          >Together with their families</span
-        >
-        <h1 class="hero-names">
-          Văn Tùng
-          <span class="amp fd">&</span>
-          Hương Lan
-        </h1>
-        <p class="hero-subtitle">
-          Kính mời quý vị đến chung vui cùng chúng tôi
-        </p>
-      </div>
-
-      <!-- 💌 BUTTON MỪNG CƯỚI — absolute giữa hero, phía dưới -->
-      <button
-        class="btn-mung-cuoi"
-        style="
-          position: absolute;
-          bottom: 5.5rem;
-          left: 50%;
-          transform: translateX(-50%);
-          margin-top: 0;
-        "
-        onclick="
-          document.getElementById('popup-mung-cuoi').classList.add('open')
-        "
-      >
-        <span class="mc-icon">💌</span>
-        Mừng Cưới
-      </button>
-
-      <div class="scroll-hint">
-        <p>Scroll</p>
-        <div class="bar"></div>
-      </div>
-    </section>
-
-    <!-- ══════════ 2. QUOTE + DATE ══════════ -->
-    <section class="paper sec">
-      <div class="wrap-sm center">
-        <p
-          class="fc reveal"
+    <div id="app">
+      <!-- ══════════ 1. HERO ══════════ -->
+      <section id="hero">
+        <div id="hero-bg"></div>
+        <div class="hero-ov"></div>
+        <div
+          class="ring"
           style="
-            font-style: italic;
-            font-size: 1.15rem;
-            color: rgba(130, 85, 30, 0.6);
-            line-height: 1.9;
-            margin-bottom: 2rem;
+            width: 62vmin;
+            height: 62vmin;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          "
+        ></div>
+        <div
+          class="ring"
+          style="
+            width: 80vmin;
+            height: 80vmin;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-color: rgba(255, 255, 255, 0.06);
+          "
+        ></div>
+        <div
+          class="hero-content"
+          id="hero-anim"
+          style="opacity: 0; transform: translateY(30px)"
+        >
+          <span
+            class="eyebrow"
+            style="color: rgba(248, 233, 200, 0.55); margin-bottom: 1.4rem"
+            >Together with their families</span
+          >
+          <h1 class="hero-names">
+            Văn Tùng
+            <span class="amp fd">&</span>
+            Hương Lan
+          </h1>
+          <p class="hero-subtitle">
+            Kính mời quý vị đến chung vui cùng chúng tôi
+          </p>
+        </div>
+        <button
+          class="btn-mung-cuoi"
+          onclick="
+            document.getElementById('popup-mung-cuoi').classList.add('open')
           "
         >
-          "Tình yêu không phải là nhìn nhau, mà là cùng nhau nhìn về một hướng."
-        </p>
-        <div class="divider reveal">
-          <div class="divider-line"></div>
-          <span style="color: #c9a050; font-size: 1rem">✦</span>
-          <div class="divider-line"></div>
+          <span class="mc-icon">💌</span>
+          Mừng Cưới
+        </button>
+        <div class="scroll-hint">
+          <p>Scroll</p>
+          <div class="bar"></div>
         </div>
-        <div class="date-card reveal">
-          <span class="eyebrow" style="margin-bottom: 0.5rem"
-            >Ngày Lành Tháng Tốt</span
-          >
+      </section>
+
+      <!-- ══════════ 2. QUOTE + DATE ══════════ -->
+      <section class="paper sec">
+        <div class="wrap-sm center">
           <p
-            class="fd gold"
+            class="fc reveal"
             style="
-              font-size: clamp(2.4rem, 8vw, 3.8rem);
-              margin: 0.5rem 0 0.25rem;
+              font-style: italic;
+              font-size: 1.15rem;
+              color: rgba(130, 85, 30, 0.6);
+              line-height: 1.9;
+              margin-bottom: 2rem;
             "
           >
-            05 · 04 · 2026
+            "Tình yêu không phải là nhìn nhau, mà là cùng nhau nhìn về một
+            hướng."
           </p>
-          <p
-            class="fci"
+          <div class="divider reveal">
+            <div class="divider-line"></div>
+            <span style="color: #c9a050; font-size: 1rem">✦</span>
+            <div class="divider-line"></div>
+          </div>
+          <div class="date-card reveal">
+            <span class="eyebrow" style="margin-bottom: 0.5rem"
+              >Ngày Lành Tháng Tốt</span
+            >
+            <p
+              class="fd gold"
+              style="
+                font-size: clamp(2.4rem, 8vw, 3.8rem);
+                margin: 0.5rem 0 0.25rem;
+              "
+            >
+              05 · 04 · 2026
+            </p>
+            <p
+              class="fci"
+              style="
+                font-size: 0.6rem;
+                letter-spacing: 0.3em;
+                color: rgba(130, 85, 30, 0.45);
+                text-transform: uppercase;
+                margin-bottom: 1.2rem;
+              "
+            >
+              Chủ Nhật
+            </p>
+            <div class="date-row">
+              <div class="date-sep"></div>
+              <div class="date-col">
+                <div class="date-num">11:00 SA</div>
+                <div class="date-lbl">Lễ Thành Hôn</div>
+              </div>
+              <div class="date-sep"></div>
+              <div class="date-col">
+                <div class="date-num">16:00 CH</div>
+                <div class="date-lbl">Tiệc Cưới</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ 3. STORY ══════════ -->
+      <div class="story-grid reveal">
+        <div class="story-img" id="story-bg"></div>
+        <div class="story-text sand">
+          <span class="eyebrow" style="margin-bottom: 1.2rem"
+            >Câu Chuyện Của Chúng Tôi</span
+          >
+          <h2
+            class="fd gold"
             style="
-              font-size: 0.6rem;
-              letter-spacing: 0.3em;
-              color: rgba(130, 85, 30, 0.45);
-              text-transform: uppercase;
+              font-size: clamp(2.4rem, 5vw, 3.4rem);
+              line-height: 1.15;
               margin-bottom: 1.2rem;
             "
           >
-            Chủ Nhật
+            Hai Tâm Hồn<br />Một Nhà
+          </h2>
+          <p
+            class="fc"
+            style="
+              font-size: 1.05rem;
+              color: rgba(100, 65, 20, 0.62);
+              line-height: 1.9;
+              margin-bottom: 1.5rem;
+            "
+          >
+            Từ một buổi chiều tháng mười tại Bắc Ninh, hai người lạ tình cờ bắt
+            đầu một hành trình không có điểm cuối. Qua những mùa hoa nở rồi tàn,
+            tình yêu vẫn ở đó — bình yên và chắc chắn.
           </p>
-          <div class="date-row">
-            <div class="date-sep"></div>
-            <div class="date-col">
-              <div class="date-num">11:00 SA</div>
-              <div class="date-lbl">Lễ Thành Hôn</div>
+          <div style="display: flex; gap: 2rem; flex-wrap: wrap">
+            <div>
+              <p class="fci gold" style="font-size: 1.8rem">2021</p>
+              <p
+                class="fc"
+                style="font-size: 0.82rem; color: rgba(100, 65, 20, 0.5)"
+              >
+                Lần đầu gặp nhau
+              </p>
             </div>
-            <div class="date-sep"></div>
-            <div class="date-col">
-              <div class="date-num">16:00 CH</div>
-              <div class="date-lbl">Tiệc Cưới</div>
+            <div>
+              <p class="fci gold" style="font-size: 1.8rem">2024</p>
+              <p
+                class="fc"
+                style="font-size: 0.82rem; color: rgba(100, 65, 20, 0.5)"
+              >
+                Lời cầu hôn
+              </p>
+            </div>
+            <div>
+              <p class="fci gold" style="font-size: 1.8rem">2026</p>
+              <p
+                class="fc"
+                style="font-size: 0.82rem; color: rgba(100, 65, 20, 0.5)"
+              >
+                Nên duyên trăm năm
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ══════════ 3. STORY ══════════ -->
-    <div class="story-grid reveal">
-      <div class="story-img" id="story-bg"></div>
-      <div class="story-text sand">
-        <span class="eyebrow" style="margin-bottom: 1.2rem"
-          >Câu Chuyện Của Chúng Tôi</span
-        >
-        <h2
-          class="fd gold"
-          style="
-            font-size: clamp(2.4rem, 5vw, 3.4rem);
-            line-height: 1.15;
-            margin-bottom: 1.2rem;
-          "
-        >
-          Hai Tâm Hồn<br />Một Nhà
-        </h2>
-        <p
-          class="fc"
-          style="
-            font-size: 1.05rem;
-            color: rgba(100, 65, 20, 0.62);
-            line-height: 1.9;
-            margin-bottom: 1.5rem;
-          "
-        >
-          Từ một buổi chiều tháng mười tại Bắc Ninh, hai người lạ tình cờ bắt
-          đầu một hành trình không có điểm cuối. Qua những mùa hoa nở rồi tàn,
-          tình yêu vẫn ở đó — bình yên và chắc chắn.
-        </p>
-        <div style="display: flex; gap: 2rem; flex-wrap: wrap">
-          <div>
-            <p class="fci gold" style="font-size: 1.8rem">2021</p>
-            <p
-              class="fc"
-              style="
-                font-size: 0.82rem;
-                color: rgba(100, 65, 20, 0.5);
-                letter-spacing: 0.05em;
-              "
-            >
-              Lần đầu gặp nhau
-            </p>
+      <!-- ══════════ 4. COUPLE ══════════ -->
+      <div class="couple-grid">
+        <div class="portrait reveal-l">
+          <div class="portrait-img" id="groom-bg"></div>
+          <div class="portrait-overlay">
+            <p class="portrait-name">Văn Tùng</p>
+            <p class="portrait-role">Chú Rể</p>
           </div>
-          <div>
-            <p class="fci gold" style="font-size: 1.8rem">2024</p>
-            <p
-              class="fc"
-              style="
-                font-size: 0.82rem;
-                color: rgba(100, 65, 20, 0.5);
-                letter-spacing: 0.05em;
-              "
-            >
-              Lời cầu hôn
-            </p>
-          </div>
-          <div>
-            <p class="fci gold" style="font-size: 1.8rem">2026</p>
-            <p
-              class="fc"
-              style="
-                font-size: 0.82rem;
-                color: rgba(100, 65, 20, 0.5);
-                letter-spacing: 0.05em;
-              "
-            >
-              Nên duyên trăm năm
-            </p>
+        </div>
+        <div class="portrait reveal-r">
+          <div class="portrait-img" id="bride-bg"></div>
+          <div class="portrait-overlay">
+            <p class="portrait-name">Hương Lan</p>
+            <p class="portrait-role">Cô Dâu</p>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- ══════════ 4. COUPLE ══════════ -->
-    <div class="couple-grid">
-      <div class="portrait reveal-l">
-        <div class="portrait-img" id="groom-bg"></div>
-        <div class="portrait-overlay">
-          <p class="portrait-name">Văn Tùng</p>
-          <p class="portrait-role">Chú Rể</p>
+      <!-- ══════════ 5. ALBUM ══════════ -->
+      <section class="darkbg sec-sm">
+        <div class="wrap center" style="margin-bottom: 2.5rem">
+          <div class="reveal">
+            <span
+              class="eyebrow"
+              style="color: rgba(201, 168, 76, 0.55); margin-bottom: 0.6rem"
+              >Khoảnh Khắc Đáng Nhớ</span
+            >
+            <h2
+              class="fd"
+              style="font-size: clamp(2.2rem, 6vw, 3.2rem); color: #f0d98a"
+            >
+              Album Ảnh Cưới
+            </h2>
+          </div>
         </div>
-      </div>
-      <div class="portrait reveal-r">
-        <div class="portrait-img" id="bride-bg"></div>
-        <div class="portrait-overlay">
-          <p class="portrait-name">Hương Lan</p>
-          <p class="portrait-role">Cô Dâu</p>
+        <div class="wrap">
+          <div class="album-grid reveal" id="album-grid"></div>
         </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- ══════════ 5. ALBUM ══════════ -->
-    <section class="darkbg sec-sm">
-      <div class="wrap center" style="margin-bottom: 2.5rem">
-        <div class="reveal">
+      <!-- ══════════ 6. TIMELINE ══════════ -->
+      <section class="sand sec">
+        <div class="wrap center">
+          <div class="reveal" style="margin-bottom: 3rem">
+            <span class="eyebrow" style="margin-bottom: 0.6rem"
+              >Hành Trình Tình Yêu</span
+            >
+            <h2 class="fd gold" style="font-size: clamp(2rem, 5vw, 3rem)">
+              Những Dấu Mốc
+            </h2>
+          </div>
+          <div class="tl" id="timeline"></div>
+        </div>
+      </section>
+
+      <!-- ══════════ 7. VENUE ══════════ -->
+      <section class="paper sec">
+        <div class="wrap-sm center reveal">
+          <span class="eyebrow" style="margin-bottom: 1rem"
+            >Địa Điểm Tổ Chức</span
+          >
+          <h2
+            class="fd gold"
+            style="font-size: clamp(2rem, 6vw, 3.2rem); margin-bottom: 0.6rem"
+          >
+            Nhà Hàng Tiệc Cưới
+          </h2>
+          <div class="venue-card" style="margin-top: 1.5rem">
+            <p
+              class="fci"
+              style="
+                font-size: 0.6rem;
+                letter-spacing: 0.35em;
+                text-transform: uppercase;
+                color: #b8892a;
+                margin-bottom: 0.8rem;
+              "
+            >
+              Địa Chỉ
+            </p>
+            <p
+              class="fc"
+              style="
+                font-size: 1.15rem;
+                color: rgba(100, 65, 20, 0.8);
+                line-height: 1.8;
+              "
+            >
+              Thuận Thành, Bắc Ninh
+            </p>
+            <p
+              class="fc"
+              style="
+                font-size: 0.95rem;
+                color: rgba(100, 65, 20, 0.52);
+                margin-top: 0.4rem;
+              "
+            >
+              (Chi tiết địa chỉ cụ thể sẽ được thông báo thêm)
+            </p>
+            <a
+              href="https://maps.google.com/?q=Thuan+Thanh+Bac+Ninh"
+              target="_blank"
+              class="map-link"
+              >📍 Xem trên Google Maps</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ 8. COUNTDOWN ══════════ -->
+      <section class="sand sec">
+        <div class="wrap center reveal">
+          <span class="eyebrow" style="margin-bottom: 2rem"
+            >Đếm Ngược Đến Ngày Trọng Đại</span
+          >
+          <div class="countdown">
+            <div class="cb">
+              <div class="cb-num gold" id="cd-d">000</div>
+              <div class="cb-lbl">Ngày</div>
+            </div>
+            <div class="cb">
+              <div class="cb-num gold" id="cd-h">00</div>
+              <div class="cb-lbl">Giờ</div>
+            </div>
+            <div class="cb">
+              <div class="cb-num gold" id="cd-m">00</div>
+              <div class="cb-lbl">Phút</div>
+            </div>
+            <div class="cb">
+              <div class="cb-num gold" id="cd-s">00</div>
+              <div class="cb-lbl">Giây</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════ 9. RSVP ══════════ -->
+      <section class="darkbg sec">
+        <div class="wrap-sm center reveal">
           <span
             class="eyebrow"
-            style="color: rgba(201, 168, 76, 0.55); margin-bottom: 0.6rem"
-            >Khoảnh Khắc Đáng Nhớ</span
+            style="color: rgba(201, 168, 76, 0.52); margin-bottom: 0.6rem"
+            >Xác Nhận Tham Dự</span
           >
           <h2
             class="fd"
-            style="font-size: clamp(2.2rem, 6vw, 3.2rem); color: #f0d98a"
-          >
-            Album Ảnh Cưới
-          </h2>
-        </div>
-      </div>
-      <div class="wrap">
-        <div class="album-grid reveal" id="album-grid"></div>
-      </div>
-    </section>
-
-    <!-- ══════════ 6. TIMELINE ══════════ -->
-    <section class="sand sec">
-      <div class="wrap center">
-        <div class="reveal" style="margin-bottom: 3rem">
-          <span class="eyebrow" style="margin-bottom: 0.6rem"
-            >Hành Trình Tình Yêu</span
-          >
-          <h2 class="fd gold" style="font-size: clamp(2rem, 5vw, 3rem)">
-            Những Dấu Mốc
-          </h2>
-        </div>
-        <div class="tl" id="timeline"></div>
-      </div>
-    </section>
-
-    <!-- ══════════ 7. VENUE ══════════ -->
-    <section class="paper sec">
-      <div class="wrap-sm center reveal">
-        <span class="eyebrow" style="margin-bottom: 1rem"
-          >Địa Điểm Tổ Chức</span
-        >
-        <h2
-          class="fd gold"
-          style="font-size: clamp(2rem, 6vw, 3.2rem); margin-bottom: 0.6rem"
-        >
-          Nhà Hàng Tiệc Cưới
-        </h2>
-        <div class="venue-card" style="margin-top: 1.5rem">
-          <p
-            class="fci"
             style="
-              font-size: 0.6rem;
-              letter-spacing: 0.35em;
-              text-transform: uppercase;
-              color: #b8892a;
-              margin-bottom: 0.8rem;
+              font-size: clamp(3rem, 9vw, 4.2rem);
+              color: #e8c55a;
+              margin-bottom: 0.6rem;
             "
           >
-            Địa Chỉ
-          </p>
+            RSVP
+          </h2>
           <p
             class="fc"
             style="
-              font-size: 1.15rem;
-              color: rgba(100, 65, 20, 0.8);
+              font-size: 1rem;
+              color: rgba(230, 205, 155, 0.5);
               line-height: 1.8;
+              margin-bottom: 2rem;
             "
           >
-            Thuận Thành, Bắc Ninh
+            Vui lòng xác nhận trước ngày
+            <strong style="color: #e8c55a">27 / 03 / 2026</strong>
           </p>
-          <p
-            class="fc"
-            style="
-              font-size: 0.95rem;
-              color: rgba(100, 65, 20, 0.52);
-              margin-top: 0.4rem;
-            "
-          >
-            (Chi tiết địa chỉ cụ thể sẽ được thông báo thêm)
-          </p>
-          <a
-            href="https://maps.google.com/?q=Thuan+Thanh+Bac+Ninh"
-            target="_blank"
-            class="map-link"
-            >📍 Xem trên Google Maps</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- ══════════ 8. COUNTDOWN ══════════ -->
-    <section class="sand sec">
-      <div class="wrap center reveal">
-        <span class="eyebrow" style="margin-bottom: 2rem"
-          >Đếm Ngược Đến Ngày Trọng Đại</span
-        >
-        <div class="countdown">
-          <div class="cb">
-            <div class="cb-num gold" id="cd-d">000</div>
-            <div class="cb-lbl">Ngày</div>
+          <div id="rsvp-form">
+            <input
+              class="rsvp-input"
+              id="rsvp-name"
+              type="text"
+              placeholder="Họ và tên của bạn"
+            />
+            <div class="btn-row">
+              <button class="btn-yes" onclick="sendRSVP(true)">
+                Tôi Sẽ Đến 🥂
+              </button>
+              <button class="btn-no" onclick="sendRSVP(false)">
+                Tiếc Không Đến
+              </button>
+            </div>
           </div>
-          <div class="cb">
-            <div class="cb-num gold" id="cd-h">00</div>
-            <div class="cb-lbl">Giờ</div>
-          </div>
-          <div class="cb">
-            <div class="cb-num gold" id="cd-m">00</div>
-            <div class="cb-lbl">Phút</div>
-          </div>
-          <div class="cb">
-            <div class="cb-num gold" id="cd-s">00</div>
-            <div class="cb-lbl">Giây</div>
+          <div class="thanks" id="rsvp-thanks">
+            <p
+              class="fd"
+              style="font-size: 2.8rem; color: #e8c55a; margin-bottom: 0.6rem"
+              id="thanks-h"
+            ></p>
+            <p
+              class="fc"
+              style="font-size: 1rem; color: rgba(230, 205, 155, 0.5)"
+              id="thanks-p"
+            ></p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ══════════ 9. RSVP ══════════ -->
-    <section class="darkbg sec">
-      <div class="wrap-sm center reveal">
-        <span
-          class="eyebrow"
-          style="color: rgba(201, 168, 76, 0.52); margin-bottom: 0.6rem"
-          >Xác Nhận Tham Dự</span
-        >
-        <h2
-          class="fd"
-          style="
-            font-size: clamp(3rem, 9vw, 4.2rem);
-            color: #e8c55a;
-            margin-bottom: 0.6rem;
-          "
-        >
-          RSVP
-        </h2>
+      <!-- ══════════ FOOTER ══════════ -->
+      <footer class="paper" style="padding: 3.5rem 1.5rem; text-align: center">
         <p
-          class="fc"
+          class="fd gold"
+          style="font-size: clamp(2rem, 7vw, 2.8rem); margin-bottom: 0.4rem"
+        >
+          Văn Tùng & Hương Lan
+        </p>
+        <p
+          class="fci"
           style="
-            font-size: 1rem;
-            color: rgba(230, 205, 155, 0.5);
-            line-height: 1.8;
-            margin-bottom: 2rem;
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            color: rgba(180, 120, 40, 0.42);
           "
         >
-          Vui lòng xác nhận trước ngày
-          <strong style="color: #e8c55a">27 / 03 / 2026</strong>
+          05 · 04 · 2026 · Thuận Thành, Bắc Ninh
         </p>
-        <div id="rsvp-form">
-          <input
-            class="rsvp-input"
-            id="rsvp-name"
-            type="text"
-            placeholder="Họ và tên của bạn"
-          />
-          <div class="btn-row">
-            <button class="btn-yes" onclick="sendRSVP(true)">
-              Tôi Sẽ Đến 🥂
-            </button>
-            <button class="btn-no" onclick="sendRSVP(false)">
-              Tiếc Không Đến
-            </button>
-          </div>
+        <div
+          style="
+            margin-top: 1.4rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.7rem;
+          "
+        >
+          <span class="footer-petal" style="animation-delay: 0s">🌸</span>
+          <span class="footer-petal" style="animation-delay: 0.5s">💍</span>
+          <span class="footer-petal" style="animation-delay: 1s">🌸</span>
         </div>
-        <div class="thanks" id="rsvp-thanks">
-          <p
-            class="fd"
-            style="font-size: 2.8rem; color: #e8c55a; margin-bottom: 0.6rem"
-            id="thanks-h"
-          ></p>
-          <p
-            class="fc"
-            style="font-size: 1rem; color: rgba(230, 205, 155, 0.5)"
-            id="thanks-p"
-          ></p>
-        </div>
-      </div>
-    </section>
+      </footer>
+    </div>
+    <!-- /#app -->
 
-    <!-- ══════════ FOOTER ══════════ -->
-    <footer class="paper" style="padding: 3.5rem 1.5rem; text-align: center">
-      <p
-        class="fd gold"
-        style="font-size: clamp(2rem, 7vw, 2.8rem); margin-bottom: 0.4rem"
-      >
-        Văn Tùng & Hương Lan
-      </p>
-      <p
-        class="fci"
-        style="
-          font-size: 0.6rem;
-          letter-spacing: 0.3em;
-          color: rgba(180, 120, 40, 0.42);
-        "
-      >
-        05 · 04 · 2026 · Thuận Thành, Bắc Ninh
-      </p>
-      <div
-        style="
-          margin-top: 1.4rem;
-          display: flex;
-          justify-content: center;
-          gap: 0.7rem;
-        "
-      >
-        <span class="footer-petal" style="animation-delay: 0s">🌸</span>
-        <span class="footer-petal" style="animation-delay: 0.5s">💍</span>
-        <span class="footer-petal" style="animation-delay: 1s">🌸</span>
-      </div>
-    </footer>
-
-    <!-- ══════════════════════════════════════
-         POPUP MỪNG CƯỚI
-    ══════════════════════════════════════ -->
+    <!-- ══════════ POPUP MỪNG CƯỚI ══════════ -->
     <div
       id="popup-mung-cuoi"
       class="mc-backdrop"
@@ -1460,14 +1479,11 @@
         >
           ✕
         </button>
-
         <p class="mc-thanks">
           Cảm ơn tất cả các tình cảm mà các em, các bạn,<br />
           các anh chị đã dành cho hai vợ chồng ạ! 🌸
         </p>
-
         <div class="mc-grid">
-          <!-- CÔ DÂU -->
           <div class="mc-item">
             <span class="mc-role">Mừng Cưới<br />Cô Dâu</span>
             <div class="mc-qr-wrap">
@@ -1479,10 +1495,7 @@
             </div>
             <p class="mc-name">Hương Lan</p>
           </div>
-
           <div class="mc-sep"></div>
-
-          <!-- CHÚ RỂ -->
           <div class="mc-item">
             <span class="mc-role">Mừng Cưới<br />Chú Rể</span>
             <div class="mc-qr-wrap">
@@ -1500,7 +1513,6 @@
 
     <!-- ════════════════ SCRIPTS ════════════════ -->
     <script>
-      /* ── Images ── */
       document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("hero-bg").style.backgroundImage =
           `url('${IMAGES.hero}')`;
@@ -1510,7 +1522,6 @@
           `url('${IMAGES.bride}')`;
         document.getElementById("groom-bg").style.backgroundImage =
           `url('${IMAGES.groom}')`;
-
         const labels = [
           "Lễ Vu Quy",
           "Khoảnh Khắc",
@@ -1532,7 +1543,8 @@
         });
       });
 
-      /* ── Petals ── */
+      /* Petals — append vào #app để bị clip trong frame */
+      const appEl = document.getElementById("app");
       const PETAL_DATA = [
         { l: "3%", delay: 0, dur: 9, size: 18, drift: "120px", e: "🌸" },
         { l: "10%", delay: 1.5, dur: 7.5, size: 14, drift: "-85px", e: "🌸" },
@@ -1555,10 +1567,9 @@
         el.className = "petal";
         el.textContent = p.e;
         el.style.cssText = `left:${p.l};font-size:${p.size}px;--drift:${p.drift};animation-duration:${p.dur}s;animation-delay:${p.delay}s`;
-        document.body.appendChild(el);
+        appEl.appendChild(el);
       });
 
-      /* ── Hero fade-in ── */
       setTimeout(() => {
         const h = document.getElementById("hero-anim");
         h.style.transition =
@@ -1567,7 +1578,6 @@
         h.style.transform = "none";
       }, 200);
 
-      /* ── Hero parallax ── */
       window.addEventListener("scroll", () => {
         const s = window.scrollY;
         const bg = document.getElementById("hero-bg");
@@ -1579,7 +1589,6 @@
         }
       });
 
-      /* ── Timeline ── */
       const STORY = [
         {
           year: "2021",
@@ -1617,7 +1626,6 @@
         </div>`;
       });
 
-      /* ── Countdown ── */
       const TARGET = new Date("2026-04-05T10:00:00");
       function pad(n) {
         return String(n).padStart(2, "0");
@@ -1642,7 +1650,6 @@
       tick();
       setInterval(tick, 1000);
 
-      /* ── RSVP ── */
       function sendRSVP(coming) {
         const name = document.getElementById("rsvp-name").value.trim();
         if (!name) {
@@ -1659,14 +1666,14 @@
         document.getElementById("thanks-p").textContent = coming
           ? `Chúng tôi rất vui khi được đón ${name} đến chung vui ngày 05/04/2026!`
           : `Cảm ơn ${name} đã nhắn tin. Chúng tôi sẽ nhớ đến bạn!`;
-        if (!coming) {
-          setTimeout(() => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }, 1800);
+        if (coming) {
+          setTimeout(
+            () => window.scrollTo({ top: 0, behavior: "smooth" }),
+            1800,
+          );
         }
       }
 
-      /* ── Scroll reveal ── */
       const obs = new IntersectionObserver(
         (entries) =>
           entries.forEach((e) => {

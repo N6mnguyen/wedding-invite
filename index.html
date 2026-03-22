@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="vi">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Thiệp cưới Văn Tùng & Hương Lan" />
     <meta
       property="og:description"
@@ -8,12 +12,31 @@
     />
     <meta
       property="og:image"
-      content="https://thiepcuoi-vantung.click/image/banner-link.png"
+      content="https://www.thiepcuoi-vantung.click/image/banner-link.png"
     />
-    <meta property="og:url" content="https://thiepcuoi-vantung.click/" />
+    <meta
+      property="og:image:secure_url"
+      content="https://www.thiepcuoi-vantung.click/image/banner-link.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://www.thiepcuoi-vantung.click/" />
     <meta property="og:type" content="website" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:locale" content="vi_VN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Thiệp cưới Văn Tùng & Hương Lan" />
+    <meta
+      name="twitter:description"
+      content="Trân trọng kính mời bạn đến chung vui cùng chúng tôi ❤️"
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.thiepcuoi-vantung.click/image/banner-link.png"
+    />
+
     <title>Thiệp Cưới · Văn Tùng & Hương Lan</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Dancing+Script:wght@500;700&family=Cinzel:wght@400;600&display=swap"
@@ -22,24 +45,11 @@
   </head>
   <body>
     <script>
-      /* ╔══════════════════════════════════════════════════════════════╗
-   ║            🌸  KHU VỰC THAY ẢNH  🌸                        ║
-   ║  Thay link ảnh tại đây — paste URL ảnh của bạn vào đây     ║
-   ╚══════════════════════════════════════════════════════════════╝ */
       const IMAGES = {
-        /* Ảnh nền Hero (ảnh cưới toàn cảnh đẹp nhất) */
         hero: "./image/banner.JPG",
-
-        /* Ảnh đôi — section "Câu chuyện tình yêu" (ảnh lãng mạn) */
         story: "./image/anh-doi.JPG",
-
-        /* Ảnh cô dâu (chân dung riêng hoặc cận cảnh) */
         bride: "./image/co-dau.JPG",
-
-        /* Ảnh chú rể (chân dung riêng hoặc cận cảnh) */
         groom: "./image/chu-re-2.JPG",
-
-        /* Album ảnh — 6 ảnh hiện theo dạng lưới (thay từng ảnh một) */
         album: [
           "./image/album-item.png",
           "./image/album-item-1.png",
@@ -48,11 +58,9 @@
           "./image/album-item-7.png",
         ],
       };
-      /* ══════════════════════════════════════════════════════════════ */
     </script>
 
     <style>
-      /* ── Reset & Base ── */
       * {
         box-sizing: border-box;
         margin: 0;
@@ -67,8 +75,6 @@
         -webkit-font-smoothing: antialiased;
         font-family: "Cormorant Garamond", serif;
       }
-
-      /* ── Font helpers ── */
       .fc {
         font-family: "Cormorant Garamond", serif;
       }
@@ -79,7 +85,6 @@
         font-family: "Cinzel", serif;
       }
 
-      /* ── Gold text ── */
       .gold {
         background: linear-gradient(
           135deg,
@@ -91,8 +96,6 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
-
-      /* ── Backgrounds ── */
       .paper {
         background:
           radial-gradient(
@@ -114,7 +117,6 @@
         background: #2d1f12;
       }
 
-      /* ── Eyebrow ── */
       .eyebrow {
         font-family: "Cinzel", serif;
         font-size: 0.58rem;
@@ -123,16 +125,12 @@
         text-transform: uppercase;
         display: block;
       }
-
-      /* ── Section pad ── */
       .sec {
         padding: 5rem 1.5rem;
       }
       .sec-sm {
         padding: 3.5rem 1.5rem;
       }
-
-      /* ── Containers ── */
       .wrap {
         max-width: 700px;
         margin: 0 auto;
@@ -145,7 +143,6 @@
         text-align: center;
       }
 
-      /* ── Divider ── */
       .divider {
         display: flex;
         align-items: center;
@@ -159,17 +156,12 @@
         background: rgba(201, 168, 76, 0.3);
       }
 
-      /* ── Scroll reveal ── */
       .reveal {
         opacity: 0;
         transform: translateY(40px);
         transition:
           opacity 0.9s cubic-bezier(0.22, 0.9, 0.36, 1),
           transform 0.9s cubic-bezier(0.22, 0.9, 0.36, 1);
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: none;
       }
       .reveal-l {
         opacity: 0;
@@ -178,10 +170,6 @@
           opacity 0.9s cubic-bezier(0.22, 0.9, 0.36, 1),
           transform 0.9s cubic-bezier(0.22, 0.9, 0.36, 1);
       }
-      .reveal-l.visible {
-        opacity: 1;
-        transform: none;
-      }
       .reveal-r {
         opacity: 0;
         transform: translateX(45px);
@@ -189,12 +177,13 @@
           opacity 0.9s cubic-bezier(0.22, 0.9, 0.36, 1),
           transform 0.9s cubic-bezier(0.22, 0.9, 0.36, 1);
       }
+      .reveal.visible,
+      .reveal-l.visible,
       .reveal-r.visible {
         opacity: 1;
         transform: none;
       }
 
-      /* ── Petals ── */
       .petal {
         position: fixed;
         pointer-events: none;
@@ -220,9 +209,7 @@
         }
       }
 
-      /* ══════════════════════════
-   HERO
-══════════════════════════ */
+      /* ── HERO ── */
       #hero {
         position: relative;
         height: 100svh;
@@ -278,6 +265,63 @@
         text-transform: uppercase;
         margin-top: 1.8rem;
       }
+
+      /* ── MỪNG CƯỚI BUTTON (trong hero-content, ngay dưới subtitle) ── */
+      .btn-mung-cuoi {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-top: 2.2rem;
+        background: rgba(248, 233, 200, 0.12);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1.5px solid rgba(248, 233, 200, 0.45);
+        color: #f8e9c8;
+        font-family: "Cinzel", serif;
+        font-size: 0.62rem;
+        letter-spacing: 0.38em;
+        text-transform: uppercase;
+        padding: 0.78rem 2.2rem;
+        border-radius: 2rem;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background 0.3s,
+          border-color 0.3s,
+          box-shadow 0.3s,
+          transform 0.2s;
+        animation: pulse-btn 2.8s ease-in-out infinite;
+        position: relative;
+        z-index: 3;
+      }
+      .btn-mung-cuoi .mc-icon {
+        font-size: 0.9rem;
+        animation: jingle 0.8s ease-in-out infinite alternate;
+      }
+      .btn-mung-cuoi:hover {
+        background: rgba(248, 233, 200, 0.22);
+        border-color: rgba(248, 233, 200, 0.8);
+        box-shadow: 0 0 28px rgba(248, 233, 200, 0.2);
+        transform: scale(1.04);
+      }
+      @keyframes pulse-btn {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(248, 233, 200, 0.22);
+        }
+        50% {
+          box-shadow: 0 0 0 9px rgba(248, 233, 200, 0);
+        }
+      }
+      @keyframes jingle {
+        0% {
+          transform: rotate(-12deg);
+        }
+        100% {
+          transform: rotate(12deg);
+        }
+      }
+
       .ring {
         position: absolute;
         border-radius: 50%;
@@ -321,9 +365,7 @@
         );
       }
 
-      /* ══════════════════════════
-   DATE CARD
-══════════════════════════ */
+      /* ── DATE CARD ── */
       .date-card {
         background: rgba(255, 255, 255, 0.72);
         backdrop-filter: blur(10px);
@@ -366,9 +408,7 @@
         margin-top: 0.3rem;
       }
 
-      /* ══════════════════════════
-   STORY — photo left, text right
-══════════════════════════ */
+      /* ── STORY ── */
       .story-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -394,9 +434,7 @@
         padding: 4rem 3rem 4rem 2rem;
       }
 
-      /* ══════════════════════════
-   COUPLE PORTRAIT — side by side
-══════════════════════════ */
+      /* ── COUPLE ── */
       .couple-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -446,9 +484,7 @@
         margin-top: 0.4rem;
       }
 
-      /* ══════════════════════════
-   ALBUM GRID
-══════════════════════════ */
+      /* ── ALBUM ── */
       .album-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -473,7 +509,6 @@
       .cell-tall {
         grid-row: span 2;
       }
-      /* label overlay on hover */
       .album-cell::after {
         content: attr(data-label);
         position: absolute;
@@ -492,9 +527,7 @@
         opacity: 1;
       }
 
-      /* ══════════════════════════
-   TIMELINE
-══════════════════════════ */
+      /* ── TIMELINE ── */
       .tl {
         max-width: 440px;
         margin: 0 auto;
@@ -554,9 +587,7 @@
         line-height: 1.7;
       }
 
-      /* ══════════════════════════
-   COUNTDOWN
-══════════════════════════ */
+      /* ── COUNTDOWN ── */
       .countdown {
         display: flex;
         justify-content: center;
@@ -593,9 +624,7 @@
         margin-top: 0.25rem;
       }
 
-      /* ══════════════════════════
-   VENUE
-══════════════════════════ */
+      /* ── VENUE ── */
       .venue-card {
         background: rgba(255, 255, 255, 0.68);
         backdrop-filter: blur(8px);
@@ -625,9 +654,7 @@
         transform: scale(1.03);
       }
 
-      /* ══════════════════════════
-   RSVP
-══════════════════════════ */
+      /* ── RSVP ── */
       .rsvp-input {
         width: 100%;
         background: rgba(255, 255, 255, 0.1);
@@ -701,9 +728,7 @@
         text-align: center;
       }
 
-      /* ══════════════════════════
-   FOOTER
-══════════════════════════ */
+      /* ── FOOTER ── */
       .footer-petal {
         display: inline-block;
         font-size: 1.5rem;
@@ -719,9 +744,195 @@
         }
       }
 
-      /* ══════════════════════════
-   RESPONSIVE
-══════════════════════════ */
+      /* ══════════════════════════════════════
+         POPUP MỪNG CƯỚI
+      ══════════════════════════════════════ */
+      .mc-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        background: rgba(10, 5, 2, 0.75);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.38s cubic-bezier(0.22, 0.9, 0.36, 1);
+      }
+      .mc-backdrop.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .mc-backdrop.open .mc-modal {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      .mc-modal {
+        background: linear-gradient(160deg, #fdf6ec 0%, #faeedd 100%);
+        border-radius: 1.8rem;
+        padding: 2.4rem 2.2rem 2.2rem;
+        max-width: 460px;
+        width: 100%;
+        position: relative;
+        border: 1px solid rgba(201, 168, 76, 0.35);
+        box-shadow:
+          0 24px 70px rgba(10, 5, 2, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        transform: translateY(32px) scale(0.97);
+        opacity: 0;
+        transition:
+          transform 0.42s cubic-bezier(0.22, 0.9, 0.36, 1),
+          opacity 0.42s;
+      }
+
+      /* Ornamental top line */
+      .mc-modal::before {
+        content: "✦  Mừng Cưới  ✦";
+        position: absolute;
+        top: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #b8892a, #e8c55a, #b8892a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-family: "Cinzel", serif;
+        font-size: 0.55rem;
+        letter-spacing: 0.4em;
+        white-space: nowrap;
+        padding: 0 0.5rem;
+      }
+
+      .mc-close {
+        position: absolute;
+        top: 0.9rem;
+        right: 1rem;
+        background: rgba(130, 85, 30, 0.08);
+        border: none;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        font-size: 0.85rem;
+        color: rgba(130, 85, 30, 0.5);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+      .mc-close:hover {
+        background: rgba(130, 85, 30, 0.15);
+        color: rgba(130, 85, 30, 0.85);
+      }
+
+      .mc-thanks {
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        font-size: 1rem;
+        color: rgba(100, 65, 20, 0.68);
+        line-height: 1.85;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        padding: 0 0.5rem;
+      }
+
+      /* luôn 2 cột ngang, co lại trên màn nhỏ */
+      .mc-grid {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        width: 100%;
+      }
+      .mc-item {
+        flex: 1;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+      }
+      .mc-sep {
+        width: 1px;
+        flex-shrink: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent,
+          rgba(201, 168, 76, 0.4),
+          transparent
+        );
+        align-self: stretch;
+        margin: 0 0.8rem;
+        min-height: 140px;
+      }
+
+      .mc-role {
+        font-family: "Cinzel", serif;
+        font-size: 0.5rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(184, 137, 42, 0.75);
+        text-align: center;
+        line-height: 1.9;
+        white-space: nowrap;
+      }
+
+      /* QR tự co theo chiều rộng màn hình */
+      .mc-qr-wrap {
+        width: min(116px, 38vw);
+        height: min(116px, 38vw);
+        flex-shrink: 0;
+        border-radius: 1rem;
+        overflow: hidden;
+        border: 1.5px solid rgba(201, 168, 76, 0.35);
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 18px rgba(180, 120, 40, 0.1);
+      }
+      .mc-qr-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+      .mc-name {
+        font-family: "Dancing Script", cursive;
+        font-size: clamp(1.1rem, 4vw, 1.55rem);
+        background: linear-gradient(135deg, #b8892a, #e8c55a, #b8892a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-align: center;
+        line-height: 1.2;
+      }
+
+      /* modal padding thu nhỏ trên mobile */
+      @media (max-width: 480px) {
+        .mc-modal {
+          padding: 1.8rem 1rem 1.5rem;
+          border-radius: 1.3rem;
+        }
+        .mc-thanks {
+          font-size: 0.9rem;
+          margin-bottom: 1.1rem;
+        }
+        .mc-sep {
+          margin: 0 0.5rem;
+        }
+      }
+
+      /* ── RESPONSIVE ── */
       @media (max-width: 768px) {
         .story-grid {
           grid-template-columns: 1fr;
@@ -751,18 +962,17 @@
         .date-sep {
           display: none;
         }
-        .polaroid-row {
-          grid-template-columns: 1fr 1fr;
-          gap: 1rem;
-        }
-        .polaroid-row .polaroid:last-child {
-          grid-column: span 2;
-        }
         .sec {
           padding: 3.5rem 1.2rem;
         }
         .story-text {
           padding: 2rem 1.2rem;
+        }
+        .mc-modal {
+          padding: 2rem 1.4rem 1.8rem;
+        }
+        .mc-sep {
+          margin: 0 0.8rem;
         }
       }
       @media (max-width: 480px) {
@@ -789,12 +999,13 @@
         .cb-num {
           font-size: 1.8rem;
         }
+        .btn-mung-cuoi {
+          font-size: 0.56rem;
+          padding: 0.7rem 1.6rem;
+          letter-spacing: 0.28em;
+        }
       }
     </style>
-
-    <!-- ═══════════ BODY STARTS ═══════════ -->
-
-    <!-- 🌸 Petals injected by JS -->
 
     <!-- ══════════ 1. HERO ══════════ -->
     <section id="hero">
@@ -821,6 +1032,7 @@
           border-color: rgba(255, 255, 255, 0.06);
         "
       ></div>
+
       <div
         class="hero-content"
         id="hero-anim"
@@ -840,6 +1052,25 @@
           Kính mời quý vị đến chung vui cùng chúng tôi
         </p>
       </div>
+
+      <!-- 💌 BUTTON MỪNG CƯỚI — absolute giữa hero, phía dưới -->
+      <button
+        class="btn-mung-cuoi"
+        style="
+          position: absolute;
+          bottom: 5.5rem;
+          left: 50%;
+          transform: translateX(-50%);
+          margin-top: 0;
+        "
+        onclick="
+          document.getElementById('popup-mung-cuoi').classList.add('open')
+        "
+      >
+        <span class="mc-icon">💌</span>
+        Mừng Cưới
+      </button>
+
       <div class="scroll-hint">
         <p>Scroll</p>
         <div class="bar"></div>
@@ -907,7 +1138,7 @@
       </div>
     </section>
 
-    <!-- ══════════ 3. STORY — ảnh + text ══════════ -->
+    <!-- ══════════ 3. STORY ══════════ -->
     <div class="story-grid reveal">
       <div class="story-img" id="story-bg"></div>
       <div class="story-text sand">
@@ -981,7 +1212,7 @@
       </div>
     </div>
 
-    <!-- ══════════ 4. CHÂN DUNG CÔ DÂU & CHÚ RỂ ══════════ -->
+    <!-- ══════════ 4. COUPLE ══════════ -->
     <div class="couple-grid">
       <div class="portrait reveal-l">
         <div class="portrait-img" id="groom-bg"></div>
@@ -999,7 +1230,7 @@
       </div>
     </div>
 
-    <!-- ══════════ 5. ALBUM ẢNH ══════════ -->
+    <!-- ══════════ 5. ALBUM ══════════ -->
     <section class="darkbg sec-sm">
       <div class="wrap center" style="margin-bottom: 2.5rem">
         <div class="reveal">
@@ -1017,9 +1248,7 @@
         </div>
       </div>
       <div class="wrap">
-        <div class="album-grid reveal" id="album-grid">
-          <!-- filled by JS -->
-        </div>
+        <div class="album-grid reveal" id="album-grid"></div>
       </div>
     </section>
 
@@ -1087,9 +1316,8 @@
             href="https://maps.google.com/?q=Thuan+Thanh+Bac+Ninh"
             target="_blank"
             class="map-link"
+            >📍 Xem trên Google Maps</a
           >
-            📍 Xem trên Google Maps
-          </a>
         </div>
       </div>
     </section>
@@ -1214,9 +1442,65 @@
       </div>
     </footer>
 
+    <!-- ══════════════════════════════════════
+         POPUP MỪNG CƯỚI
+    ══════════════════════════════════════ -->
+    <div
+      id="popup-mung-cuoi"
+      class="mc-backdrop"
+      onclick="if (event.target === this) this.classList.remove('open');"
+    >
+      <div class="mc-modal">
+        <button
+          class="mc-close"
+          onclick="
+            document.getElementById('popup-mung-cuoi').classList.remove('open')
+          "
+          aria-label="Đóng"
+        >
+          ✕
+        </button>
+
+        <p class="mc-thanks">
+          Cảm ơn tất cả các tình cảm mà các em, các bạn,<br />
+          các anh chị đã dành cho hai vợ chồng ạ! 🌸
+        </p>
+
+        <div class="mc-grid">
+          <!-- CÔ DÂU -->
+          <div class="mc-item">
+            <span class="mc-role">Mừng Cưới<br />Cô Dâu</span>
+            <div class="mc-qr-wrap">
+              <img
+                src="./image/qr-co-dau.png"
+                alt="QR Cô Dâu"
+                class="mc-qr-img"
+              />
+            </div>
+            <p class="mc-name">Hương Lan</p>
+          </div>
+
+          <div class="mc-sep"></div>
+
+          <!-- CHÚ RỂ -->
+          <div class="mc-item">
+            <span class="mc-role">Mừng Cưới<br />Chú Rể</span>
+            <div class="mc-qr-wrap">
+              <img
+                src="./image/qr-chu-re.png"
+                alt="QR Chú Rể"
+                class="mc-qr-img"
+              />
+            </div>
+            <p class="mc-name">Văn Tùng</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ════════════════ SCRIPTS ════════════════ -->
     <script>
-      /* ── Apply images from config ── */
+      /* ── Images ── */
       document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("hero-bg").style.backgroundImage =
           `url('${IMAGES.hero}')`;
@@ -1227,7 +1511,6 @@
         document.getElementById("groom-bg").style.backgroundImage =
           `url('${IMAGES.groom}')`;
 
-        /* Album grid — layout: tall | 2 normal | 2 normal | tall */
         const labels = [
           "Lễ Vu Quy",
           "Khoảnh Khắc",
@@ -1238,8 +1521,7 @@
         const grid = document.getElementById("album-grid");
         IMAGES.album.forEach((url, i) => {
           const cell = document.createElement("div");
-          cell.className =
-            "album-cell" + (i === 0 || i === 5 ? " cell-tall" : "");
+          cell.className = "album-cell" + (i === 0 ? " cell-tall" : "");
           cell.dataset.label = labels[i] || "";
           const img = document.createElement("img");
           img.src = url;
@@ -1280,7 +1562,7 @@
       setTimeout(() => {
         const h = document.getElementById("hero-anim");
         h.style.transition =
-          "opacity 1.2s cubic-bezier(.22,.9,.36,1), transform 1.2s cubic-bezier(.22,.9,.36,1)";
+          "opacity 1.2s cubic-bezier(.22,.9,.36,1),transform 1.2s cubic-bezier(.22,.9,.36,1)";
         h.style.opacity = "1";
         h.style.transform = "none";
       }, 200);
@@ -1297,7 +1579,7 @@
         }
       });
 
-      /* ── Timeline data ── */
+      /* ── Timeline ── */
       const STORY = [
         {
           year: "2021",
@@ -1322,18 +1604,17 @@
       ];
       const tlEl = document.getElementById("timeline");
       STORY.forEach((s, i) => {
-        tlEl.innerHTML += `
-  <div class="tl-item reveal" style="transition-delay:${i * 0.1}s">
-    <div class="tl-side">
-      <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-      ${i < STORY.length - 1 ? '<div class="tl-vline"></div>' : ""}
-    </div>
-    <div style="padding-bottom:1.25rem">
-      <p class="tl-year">${s.year}</p>
-      <p class="tl-title gold">${s.title}</p>
-      <p class="tl-desc">${s.desc}</p>
-    </div>
-  </div>`;
+        tlEl.innerHTML += `<div class="tl-item reveal" style="transition-delay:${i * 0.1}s">
+          <div class="tl-side">
+            <div class="tl-dot"><div class="tl-dot-inner"></div></div>
+            ${i < STORY.length - 1 ? '<div class="tl-vline"></div>' : ""}
+          </div>
+          <div style="padding-bottom:1.25rem">
+            <p class="tl-year">${s.year}</p>
+            <p class="tl-title gold">${s.title}</p>
+            <p class="tl-desc">${s.desc}</p>
+          </div>
+        </div>`;
       });
 
       /* ── Countdown ── */
@@ -1378,15 +1659,19 @@
         document.getElementById("thanks-p").textContent = coming
           ? `Chúng tôi rất vui khi được đón ${name} đến chung vui ngày 05/04/2026!`
           : `Cảm ơn ${name} đã nhắn tin. Chúng tôi sẽ nhớ đến bạn!`;
+        if (!coming) {
+          setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 1800);
+        }
       }
 
-      /* ── Scroll reveal (IntersectionObserver) ── */
+      /* ── Scroll reveal ── */
       const obs = new IntersectionObserver(
-        (entries) => {
+        (entries) =>
           entries.forEach((e) => {
             if (e.isIntersecting) e.target.classList.add("visible");
-          });
-        },
+          }),
         { threshold: 0.1 },
       );
       document
